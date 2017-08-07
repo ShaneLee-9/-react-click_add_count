@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-alpha.15/babel.min.js"></script>
+    <script type="text/babel">
+        var ButtonCount = React.createClass({
+            getInitialState: function(){
+                return {
+                    clickCount: 0 //设置h1点击数量初始值
+                }
+            },
+            buttonClick: function(){
+                this.setState({
+                    clickCount: this.state.clickCount +1 //出发按钮点击事件后clickCount的值+1
+                });
+            },
+            render: function(){
+                return (
+                    <div>
+                        <button onClick={this.buttonClick}>点击</button>
+                        <h1>点击数量：{this.state.clickCount}</h1>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <ButtonCount/>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
